@@ -12,6 +12,6 @@ How to run the server:
 1. clone the repo and all that stuff. In terminal, change directory to /server
 2. run `npm install`
 3. launch postgres if you have not done so using `pg_ctl -D "<path to postgreSQL\version\data>" start` example: `pg_ctl -D "E:\Program Files\PostgreSQL\13\data" start`
-4. create required schema by using the command `-U <DB_USER> -d <DB_DATABASE> -f <path to database.sql (in server folder of this repo)>` example: `-U person -d postgres -f E:\Users\me\Desktop\CS2102_2021_S1_08\server\database.sql`
+4. create required schema by using the command `psql -U <DB_USER> -d <DB_DATABASE> -f <path to database.sql (in server folder of this repo)>` example: `-U person -d postgres -f E:\Users\me\Desktop\CS2102_2021_S1_08\server\database.sql`
 5. run `npm start dev`
 6. the server will be running on localhost port 8080
