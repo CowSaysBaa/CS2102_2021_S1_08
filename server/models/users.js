@@ -85,7 +85,41 @@ function getUserType(username) {
     )
 }
 
+function getUserName(username) {
+  return pool.query(`
+    SELECT IFNULL(name, 'Anonymous person')
+    FROM users
+    WHERE username = $1::text;
+    `,
+    [username]
+  )
+}
+
+function getUserProfile(username) {
+  return pool.query(`
+    SELECT IFNULL(profile, 'Empty')
+    FROM users
+    WHERE username = $1::text;
+    `,
+    [username]
+  )
+}
+
+function deleteUser(username) {
+  return pool.query(`
+    DELETE 
+    FROM users
+    WHERE username = $1::text;
+    `,
+    [username]
+  )
+}
+
+
 // exports.getUser = getUser;
 exports.getUserType = getUserType;
 exports.createUser = createUser;
 exports.createPCSAdmin = createPCSAdmin;
+exports.getUserName = getUserName;
+exports.getUserProfile = getUserProfile;
+exports.deleteUser = deleteUser;
